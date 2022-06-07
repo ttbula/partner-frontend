@@ -1,21 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,200;1,700&display=swap');
 
 body {
-  background-color: burlywood;
+  background-color: #deb887;
   color: #165916;
-  font-family: 'Nunito', sans-serif;
   text-align: center;
   padding: 0;
   margin: 0;
 }
 
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
 .button {
   background: linear-gradient(45deg, green, #165916);
   color: whitesmoke;
-  font-family: 'Nunito', sans-serif;
-  font-size: 16px;
-  padding: 12px 30px;
-  border-radius: 30px;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 10px;
+  border: 0;
 }
 .button:hover {
   background: linear-gradient(260deg, #165916, green);
@@ -26,18 +30,21 @@ nav {
   width: 100%;
   justify-content: space-between;
   display: flex;
-
+  
 }
 
-nav .logo {
+.div-logo {
   margin: 15px;
   width: 170px;
 }
 
-nav .nav-button {
+.logo {
+  width: 100%;
+}
+
+.nav-button {
   color: whitesmoke;
   background-color: #165916;
-  font-family: 'Nunito', sans-serif;
   margin: 30px 30px 150px;
   font-size: 20px;
   padding: 10px 30px;
@@ -45,10 +52,32 @@ nav .nav-button {
 
 }
 
+.nav-button:disabled {
+  background-color: #deb887;
+  color: #deb887
+}
+
 /* ------------------------- Home ------------------------- */
-/* 
-.page {
+/* .home {
   width: 100px;
   height: 100px;
   position: fixed;
 } */
+
+/* ------------------------- Auth ------------------------- */
+.auth-state {
+  /* position: absolute; */
+  top: 50px;
+  margin-left: 280px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  max-width: 360px;
+  height: 600px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.close {
+  float: left;
+}
