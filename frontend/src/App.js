@@ -1,7 +1,7 @@
 import './index.css';
 import Home from './pages/Home';
-import Nav from './pages/Nav';
 import User from './pages/User';
+import Dashboard from './pages/Dashboard';
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<Home />} />
-        <Route path={"/nav"} element={<Nav />} />
+        <Route path={"/dashboard"} element={<Dashboard />} />
         <Route path={"/user"} element={<User />} />
       </Routes> 
     </BrowserRouter>

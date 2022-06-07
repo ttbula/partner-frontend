@@ -1,7 +1,22 @@
+import Nav from "../components/Nav"
+
 const Home = () => {
+
+    const authToken = false
+
+    const handleClick = () => {
+        console.log('it works!')
+    }
+
     return (
-        <div>
-            <h1>Swipe on a Golfer</h1>
+        <div className="page">
+            <Nav authToken={authToken} />
+                <div className="home">
+                    <h1>Partner-Up</h1>
+                    <button className="button" onClick={handleClick}>
+                        {authToken ? 'Signout' : 'Create Account'}
+                    </button>
+                </div>
         </div>
     )
 }
