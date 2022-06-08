@@ -1,10 +1,12 @@
 import { useState } from 'react'
 
-const AuthState = ({setShowState}) => {
+const AuthState = ({setShowState, signedUp}) => {
     const [email, setEmail] = useState(null)
     const [password, setPassword] = useState(null)
     const [confirm, setConfirm] = useState(null)
     const [error, setError] = useState(null)
+
+    console.log(email, password, confirm)
 
     const handleClick = () => {
         setShowState(false)
@@ -12,14 +14,20 @@ const AuthState = ({setShowState}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        try {
+            if(signedUp && (password !== confirm)) {
+                setError('Passwords do not match')
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
-    const hasAccount = true
 
     return (
         <div className="auth-state">
             <div className="close" onClick={handleClick}>X</div>
-            <h2>{hasAccount ? 'Make Account' : 'Log In'}</h2>
-            <form onSubmit={handleSubmit}>
+            <h2>{signedUp ? 'Sign Up Here!' : 'Log In'}</h2>
+            <form className="form" onSubmit={handleSubmit}>
                 <input
                     type='email'
                     id='email'
@@ -36,14 +44,16 @@ const AuthState = ({setShowState}) => {
                     required={true}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <input
+                {signedUp && <input
                     type='password-check'
                     id='password-check'
                     name='password-check'
                     placeholder='Confirm your password'
                     required={true}
                     onChange={(e) => setConfirm(e.target.value)}
-                />
+                />}
+                <input className="submit-button" type="submit" />
+                <p>{error}</p>
             </form>
         </div>
     )

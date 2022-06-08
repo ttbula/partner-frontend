@@ -12,6 +12,10 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
+.home {
+  font-size: 30px;
+}
+
 .button {
   background: linear-gradient(45deg, green, #165916);
   color: whitesmoke;
@@ -23,6 +27,21 @@ body {
 }
 .button:hover {
   background: linear-gradient(260deg, #165916, green);
+}
+
+.submit-button {
+  color:rgb(22, 89, 22);
+  background-color: whitesmoke;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: solid 2px #165916;
+  margin: 6px;
+  font-size: 15px;
+}
+
+.submit-button:hover {
+  color: rgb(16, 67, 16);
+  background-color: rgb(228, 226, 226);
 }
 
 /* ------------------------- Nav ------------------------- */
@@ -72,7 +91,7 @@ nav {
   margin-right: auto;
   margin-bottom: 10px;
   max-width: 360px;
-  height: 600px;
+  height: 450px;
   background-color: whitesmoke;
   border-radius: 10px;
   padding: 40px;
@@ -80,4 +99,15 @@ nav {
 
 .close {
   float: left;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-state input {
+  padding: 8px;
+  margin: 8px;
+  font-size: 17px;
 }
