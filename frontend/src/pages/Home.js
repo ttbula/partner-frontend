@@ -17,7 +17,7 @@ const Home = () => {
 
     return (
         <div className="page">
-            <Nav authToken={authToken} setShowState={setShowState} showState={showState} setSignedUp={setSignedUp}/>
+            <Nav setShowState={setShowState} showState={showState} setSignedUp={setSignedUp}/>
                 <div className="home">
                     <h1 className="name">Partner-Up</h1>
                     <button className="button" onClick={handleClick}>

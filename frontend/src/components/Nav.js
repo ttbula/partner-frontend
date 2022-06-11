@@ -1,10 +1,11 @@
-const Nav = ({authToken, setShowState, showState, setSignedUp}) => {
+const Nav = ({setShowState, showState, setSignedUp}) => {
 
     const handleClick = () => {
         setShowState(true)
         console.log('working')
         setSignedUp(false)
     }
+    const authToken = false
 
     return (
         <nav className="nav">
