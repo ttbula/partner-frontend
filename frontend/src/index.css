@@ -187,3 +187,63 @@ nav {
 .card h3 {
   margin-top: 0;
 }
+
+/* -------------- Chat Container -------- */
+
+.chatContainer {
+  background-color: white;
+  width: 30%;
+  text-align: left;
+  z-index: 1;
+}
+
+.chatTop {
+  background: linear-gradient(45deg, green, #165916);
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.buttonChat {
+  border: none;
+  background-color: white;
+  border-bottom: solid 4px (green);
+  font-size: 20px;
+  margin: 2px;
+  padding: 10px;
+}
+
+.profilePic {
+  padding: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.image {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.profilePic img {
+  width: 100%;
+}
+
+/* -------------- Chat Appearance ------------- */
+
+.appearance {
+  padding: 20px;
+  height: 60vh;
+  overflow-y: auto;
+}
+
+.chatText {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}

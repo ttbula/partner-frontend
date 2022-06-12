@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const AuthState = ({setShowState, signedUp}) => {
     const [email, setEmail] = useState(null)
@@ -6,18 +8,28 @@ const AuthState = ({setShowState, signedUp}) => {
     const [confirm, setConfirm] = useState(null)
     const [error, setError] = useState(null)
 
+    let navigate = useNavigate()
+
     console.log(email, password, confirm)
 
     const handleClick = () => {
         setShowState(false)
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         try {
             if(signedUp && (password !== confirm)) {
                 setError('Passwords do not match')
-            }
+                return
+            } 
+
+            const response = await axios.post('http://localhost:4000/createaccount', {email, password})
+            const success = response.status === 201
+
+            if(success) navigate('/user')
+
+
         } catch (error) {
             console.log(error)
         }
