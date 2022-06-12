@@ -27,11 +27,13 @@ const AuthState = ({setShowState, signedUp}) => {
             } 
 
             const response = await axios.post(`http://localhost:4000/${signedUp ? 'signup' : 'login'}`, {email, password})
-            const success = response.status === 201
 
-            setCookie('Email', response.data.email)
             setCookie('UserId', response.data.userId)
             setCookie('AuthToken', response.data.token)
+            
+            const success = response.status === 201
+
+            // setCookie('Email', response.data.email)
 
             if (success && signedUp) navigate ('/user')
             if (success && !signedUp) navigate ('/dashboard')
