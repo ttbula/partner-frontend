@@ -38,6 +38,8 @@ const AuthState = ({setShowState, signedUp}) => {
             if (success && signedUp) navigate ('/user')
             if (success && !signedUp) navigate ('/dashboard')
 
+            window.location.reload()
+
 
         } catch (error) {
             console.log(error)
