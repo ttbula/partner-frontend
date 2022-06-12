@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom'
 
 const AuthState = ({setShowState, signedUp}) => {
@@ -7,6 +8,7 @@ const AuthState = ({setShowState, signedUp}) => {
     const [password, setPassword] = useState(null)
     const [confirm, setConfirm] = useState(null)
     const [error, setError] = useState(null)
+    const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
     let navigate = useNavigate()
 
@@ -24,10 +26,15 @@ const AuthState = ({setShowState, signedUp}) => {
                 return
             } 
 
-            const response = await axios.post('http://localhost:4000/createaccount', {email, password})
+            const response = await axios.post(`http://localhost:4000/${signedUp ? 'signup' : 'login'}`, {email, password})
             const success = response.status === 201
 
-            if(success) navigate('/user')
+            setCookie('Email', response.data.email)
+            setCookie('UserId', response.data.userId)
+            setCookie('AuthToken', response.data.token)
+
+            if (success && signedUp) navigate ('/user')
+            if (success && !signedUp) navigate ('/dashboard')
 
 
         } catch (error) {
