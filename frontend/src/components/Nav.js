@@ -2,7 +2,7 @@ const Nav = ({setShowState, showState, setSignedUp}) => {
 
     const handleClick = () => {
         setShowState(true)
-        console.log('working')
+        // console.log('working')
         setSignedUp(false)
     }
     const authToken = false

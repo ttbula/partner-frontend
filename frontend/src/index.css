@@ -191,7 +191,7 @@ nav {
 /* -------------- Chat Container -------- */
 
 .chatContainer {
-  background-color: white;
+  background-color: grey;
   width: 30%;
   text-align: left;
   z-index: 1;
@@ -203,7 +203,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: yellow;
 }
 
 .buttonChat {

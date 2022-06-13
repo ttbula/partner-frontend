@@ -5,9 +5,10 @@ import ChatContainer from '../components/ChatContainer'
 import axios from "axios"
 
 const Dashboard = () => {
-    const [user, setUser] = useState(null)
-    const [cookies, setCookie, removeCookie] = useCookies(['user'])
-    const [allUsers, setAllUsers] = useState(null)
+  const [user, setUser] = useState(null)
+  const [allUsers, setAllUsers] = useState(null)
+  // const [lastDirection, setLastDirection] = useState()
+  const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
     const userId = cookies.UserId
 
@@ -36,22 +37,26 @@ const Dashboard = () => {
       useEffect(() => {
         getUser()
         getAllUsers()
-      }, [user, allUsers])
+      }, [])
       console.log(allUsers)
 
   const [lastDirection, setLastDirection] = useState()
 
   const updatedMatches = async (matchedUserId) => {
     try {
-      await axios.put('http://localhost:400/addmatch', {
+      await axios.put('http://localhost:4000/addmatch', {
         userId,
         matchedUserId
       })
-      getUser()
+      getAllUsers()
+
     } catch (error) {
+
       console.log(error)
     }
   }
+
+  // console.log(user)
 
   const swiped = (direction, swipedUserId) => {
 
@@ -63,8 +68,14 @@ const Dashboard = () => {
   }
 
   const outOfFrame = (name) => {
-    console.log(name + ' left the screen!')
+    // console.log(name + ' left the screen!')
   }
+
+  const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
+
+  const filteredUsers = allUsers?.filter(
+    allUsers => !matchedUserIds.includes(allUsers.user_id)
+  )
 
     return (
       <>
@@ -74,7 +85,7 @@ const Dashboard = () => {
             <div className="swiper-container">
                 <div className="cardContainer">
 
-                {allUsers?.map((allUser) =>
+                {filteredUsers?.map((allUser, idx) =>
                     <TinderCard className='swipe'
                         key={allUser.first_name} 
                         onSwipe={(dir) => swiped(dir, allUser.user_id)}

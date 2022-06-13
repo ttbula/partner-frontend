@@ -10,7 +10,7 @@ const Home = () => {
     const authToken = false
 
     const handleClick = () => {
-        console.log('it works!')
+        // console.log('it works!')
         setShowState(true)
         setSignedUp(true)
     }

@@ -21,7 +21,7 @@ const User = () => {
 
     let navigate = useNavigate()
     const handleSubmit = async (e) => {
-        console.log('submitted')
+        // console.log('submitted')
         e.preventDefault()
         try {
             const response = await axios.put('http://localhost:4000/user', {formData})

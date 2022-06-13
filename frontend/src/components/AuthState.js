@@ -12,7 +12,7 @@ const AuthState = ({setShowState, signedUp}) => {
 
     let navigate = useNavigate()
 
-    console.log(email, password, confirm)
+    // console.log(email, password, confirm)
 
     const handleClick = () => {
         setShowState(false)
@@ -44,6 +44,8 @@ const AuthState = ({setShowState, signedUp}) => {
         } catch (error) {
             console.log(error)
         }
+
+
     }
 
     return (

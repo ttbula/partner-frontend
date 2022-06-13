@@ -4,18 +4,21 @@ import MatchBody from "./MatchBody"
 import {useState} from 'react'
 
 const ChatContainer = ({user}) => {
+
+    const [ clickedUser, setClickedUser ] = useState(null)
+    
     return (
         <div className="chatContainer">
             <ChatTop user={user}/>
 
             <div>
-                <button className="buttonChat">Matches</button>
-                <button className="buttonChat">Chat</button>
+                <button className="buttonChat" onClick={() => setClickedUser(null)}>Matches</button>
+                <button className="buttonChat" disabled={!clickedUser}>Chat</button>
             </div>
 
-            <MatchBody />
+            {!clickedUser && <MatchBody matches={user.matches} setClickedUser={setClickedUser}/>}
 
-            <ChatBody />
+            {clickedUser && <ChatBody user={user} clickedUser={clickedUser}/>}
 
         </div>
     )
