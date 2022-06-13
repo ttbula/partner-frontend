@@ -66,7 +66,12 @@ const ChatBody = (user, clickedUser) => {
     return (
         <div>
             <Chat descendingOrderMessages={descendingOrderMessages}/>
-            <ChatText />
+            <ChatText
+            user={user}
+            clickedUser={clickedUser} 
+            getUsersMessages={getUsersMessages} 
+            getClickedUsersMessages={getClickedUsersMessages}
+            />
         </div>
     )
 }
