@@ -14,7 +14,7 @@ const Dashboard = () => {
 
       const getUser = async () => {
         try {
-          const response = await axios.get('http://localhost:4000/user', {
+          const response = await axios.get('https://partner-up-backend.herokuapp.com/user', {
             params: {userId}
           })
           setUser(response.data)
@@ -25,7 +25,7 @@ const Dashboard = () => {
 
       const getAllUsers = async () => {
         try {
-          const response = await axios.get('http://localhost:4000/allusers', {
+          const response = await axios.get('https://partner-up-backend.herokuapp.com/allusers', {
             params: {handicap: user?.handicap}
           })
           setAllUsers(response.data)
@@ -44,7 +44,7 @@ const Dashboard = () => {
 
   const updatedMatches = async (matchedUserId) => {
     try {
-      await axios.put('http://localhost:4000/addmatch', {
+      await axios.put('https://partner-up-backend.herokuapp.com/addmatch', {
         userId,
         matchedUserId
       })

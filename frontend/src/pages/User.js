@@ -24,7 +24,7 @@ const User = () => {
         // console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.put('http://localhost:4000/user', {formData})
+            const response = await axios.put('https://partner-up-backend.herokuapp.com/user', {formData})
             const success = response.status === 200
             if(success) navigate('/dashboard')
         } catch(err) {

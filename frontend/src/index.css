@@ -248,3 +248,15 @@ nav {
   display: flex;
   flex-direction: column;
 }
+
+.img-container {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.img-container img {
+  width: 100%;
+}

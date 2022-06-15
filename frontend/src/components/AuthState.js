@@ -26,7 +26,7 @@ const AuthState = ({setShowState, signedUp}) => {
                 return
             } 
 
-            const response = await axios.post(`http://localhost:4000/${signedUp ? 'signup' : 'login'}`, {email, password})
+            const response = await axios.post(`https://partner-up-backend.herokuapp.com/${signedUp ? 'signup' : 'login'}`, {email, password})
 
             setCookie('UserId', response.data.userId)
             setCookie('AuthToken', response.data.token)
